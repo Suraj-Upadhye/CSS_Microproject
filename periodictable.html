@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+    <link rel="stylesheet" href="periodictable.css">
+</head>
+
+<body id="body">
+    <div id="printabletable">
+        <div class="categories"></div>
+        <div class="showelement"></div>
+        <div class="el_info_atno_line el_info_line"></div>
+        <div class="el_info_mass_line el_info_line"></div>
+        <div class="el_info_symbol_line el_info_line"></div>
+        <div class="el_info_name_line el_info_line"></div>
+
+        <div class="el_info_atno el_info">Atomic Number</div>
+        <div class="el_info_mass el_info">Atomic Mass</div>
+        <div class="el_info_symbol el_info">Atomic Symbol</div>
+        <div class="el_info_name el_info">Atomic Name</div>
+
+        <div class="table-1"></div>
+
+        <div class="table-2"></div>
+    </div>
+    <div class="printdownload">
+        <button onclick=" downloadImage()" class="downloadbtn1">Download as Image</button>
+        <button onclick=" downloadPDF()" class="downloadbtn2">Download as PDF</button>
+        <button onclick="printPDF()" class="printbtn">Print</button>
+    </div>
+
+    <script>
+        function downloadImage() {
+            var imageUrl = 'periodic-table.PNG' // image URL
+
+            var link = document.createElement('a');
+            link.href = imageUrl;
+            link.download = 'periodic-table.jpg'; //file name when downloaded
+            link.click();
+        }
+
+        function downloadPDF() {
+            var PDFUrl = 'periodic-table.pdf' // image URL
+
+            var link = document.createElement('a');
+            link.href = PDFUrl;
+            link.download = 'periodic-table.pdf'; //file name when downloaded
+            link.click();
+        }
+
+        function printPDF() {
+            var pdfURL = 'periodic-table.pdf'; // path to local PDF file
+
+            var newWindow = window.open(pdfURL);
+            newWindow.onload = function () {
+                newWindow.print();
+            };
+        }
+
+    </script>
+
+
+    <!-- The table grids will be injected in the div by Javascript -->
+
+</body>
+<script src="periodictable.js"></script>
+
+</html>
+
+<!-- 
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+ -->
